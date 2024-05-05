@@ -1,0 +1,1 @@
+ALTER TABLE "adminLogin" DROP COLUMN IF EXISTS "name";
