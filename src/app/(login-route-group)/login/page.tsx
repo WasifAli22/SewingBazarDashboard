@@ -1,3 +1,4 @@
+// app/(login-route-group)/login/page.tsx
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { useState } from "react";
@@ -6,37 +7,37 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { LoginUserInput, LoginUserSchema } from "@/lib/validations/user.schema";
+// import { useAuth } from '@/components/contexts/AuthContext';  // Ensure the path is correct
 
 export default function LoginPage() {
-    const {
-        register,
-        handleSubmit,
-        reset,
-        formState: { errors },
-    } = useForm<LoginUserInput>({
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<LoginUserInput>({
         resolver: zodResolver(LoginUserSchema),
     });
+    // const { login } = useAuth();
     const router = useRouter();
     const [loading, setLoading] = useState(false);
 
     const onSubmit: SubmitHandler<LoginUserInput> = async (data) => {
-        const toastId = toast.loading("Trying to validate");
-
+        const toastId = toast.loading("Trying to validate...");
         try {
             setLoading(true);
             const res = await fetch("/api/login", {
                 method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
                 body: JSON.stringify(data),
             });
             if (!res.ok) {
                 toast.error("Username or password invalid");
             } else {
                 const responseData = await res.json();
-                toast.success(responseData.status as string);
+                // login(responseData);  // Use context to handle login
+                toast.success("Logged in successfully!");
                 reset();
                 router.push("/");
             }
-        } catch (err: any) {
+        } catch (err:any) {
             toast.error(err.message);
         } finally {
             setLoading(false);
@@ -50,7 +51,7 @@ export default function LoginPage() {
 
             <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="w-full lg:max-w-md md:max-w-xl max-w-max p-2 bg-white/90 rounded-md shadow-lg shadow-gray-400 md:p-4 "
+                className="w-full lg:max-w-md md:max-w-xl max-w-max p-2 bg-gray-500 rounded-md shadow-xl shadow-gray-400 md:p-4 "
             >
                 <div className="  min-w-3xl flex flex-col gap-6 w-full  mb-6 ">
                     {/* Username */}
