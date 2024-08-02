@@ -1,5 +1,5 @@
 {
-  "id": "5219f983-70b0-4c3e-90ac-4270d51e7385",
+  "id": "7521d2ff-a74f-4df4-9ddd-92b4ad0bab47",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -72,8 +72,8 @@
         }
       }
     },
-    "login_users": {
-      "name": "login_users",
+    "adminLogin": {
+      "name": "adminLogin",
       "schema": "",
       "columns": {
         "user_id": {
@@ -100,14 +100,21 @@
           "primaryKey": false,
           "notNull": false,
           "default": "now()"
+        },
+        "updatedAt": {
+          "name": "updatedAt",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
         }
       },
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {
-        "login_users_email_unique": {
-          "name": "login_users_email_unique",
+        "adminLogin_email_unique": {
+          "name": "adminLogin_email_unique",
           "nullsNotDistinct": false,
           "columns": [
             "email"

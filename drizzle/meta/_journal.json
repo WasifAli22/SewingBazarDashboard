@@ -5,29 +5,8 @@
     {
       "idx": 0,
       "version": "5",
-      "when": 1714745562204,
-      "tag": "0000_round_epoch",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "5",
-      "when": 1714895599036,
-      "tag": "0001_useful_punisher",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "5",
-      "when": 1714895715215,
-      "tag": "0002_moaning_shinobi_shaw",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "5",
-      "when": 1714897063225,
-      "tag": "0003_big_rockslide",
+      "when": 1718191911542,
+      "tag": "0000_milky_master_chief",
       "breakpoints": true
     }
   ]

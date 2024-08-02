@@ -10,10 +10,11 @@ CREATE TABLE IF NOT EXISTS "inquiry" (
 	CONSTRAINT "inquiry_email_unique" UNIQUE("email")
 );
 --> statement-breakpoint
-CREATE TABLE IF NOT EXISTS "login_users" (
+CREATE TABLE IF NOT EXISTS "adminLogin" (
 	"user_id" serial PRIMARY KEY NOT NULL,
 	"email" varchar(256) NOT NULL,
 	"password" varchar(256) NOT NULL,
 	"created_at" timestamp DEFAULT now(),
-	CONSTRAINT "login_users_email_unique" UNIQUE("email")
+	"updatedAt" timestamp DEFAULT now(),
+	CONSTRAINT "adminLogin_email_unique" UNIQUE("email")
 );
